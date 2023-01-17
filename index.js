@@ -25,6 +25,7 @@ entire body portion of an incoming
 request stream and exposes it on req.body
 */
 const bodyParser = require('body-parser');
+const { response } = require('express');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -44,12 +45,13 @@ pool.connect((err, client, release) => {
 	})
 })
 
-app.get('/', (req, res, next) => {
-	console.log("TEST DATA :");
+app.get('/', (request, response, next) => {
+	// console.log("TEST DATA :");
 	pool.query('Select * from test')
 		.then(testData => {
-			console.log(testData);
-			res.send(testData.rows);
+			// console.log(testData);
+			// res.send(testData.rows);
+			response.json(testData.rows);
 		})
 })
 
