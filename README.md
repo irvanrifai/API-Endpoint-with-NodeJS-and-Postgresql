@@ -9,4 +9,4 @@
 # How to run
 - Make sure your database has been created with Postgresql depend on this app
 - Run the database server with XAMPP / MAMP / Laragon
-- Run the spring app with "node server.js"
+- Run the app with "node server.js"
